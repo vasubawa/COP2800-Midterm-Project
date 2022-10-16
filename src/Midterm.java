@@ -1,35 +1,32 @@
-/* 
 import java.util.Scanner;
 
 public class Midterm {
-        public static void main(String[] args) throws Exception {
-        //Variables 
+    public static void main(String[] args) throws Exception {
+        // Variables
         String menuChoice;
         double[] numArray = new double[3];
         numArray = null;
 
-        //scanner
+        // scanner
         Scanner scnr = new Scanner(System.in);
-        //System.out.println(numArray[0]);
-        
-    
-        //Method Loops for User Choice 
-        do{
-            menuChoice = userInput(scnr);
-            //System.out.println(numArray);
-            if(numArray == null && !menuChoice.equals("N") && !menuChoice.equals("X")){
-                System.out.println("Error: Please select option N from the menu first!\n");
-            }
-            else if(menuChoice.equals("X")){
-                break;
-            }
-            else{
+        // System.out.println(numArray[0]);
 
+        // Method Loops for User Choice
+        do {
+            menuChoice = userInput(scnr);
+            // System.out.println(numArray);
+            if (numArray == null && !menuChoice.equals("N") && !menuChoice.equals("X")) {
+                System.out.println("\nError: Please select option N from the menu first!\n");
+            } else if (menuChoice.equals("X")) {
+                break;
+            } else if (menuChoice.equals("N") || menuChoice.equals("A") || menuChoice.equals("S")
+                    || menuChoice.equals("M") || menuChoice.equals("D") || menuChoice.equals("V")
+                    || menuChoice.equals("L") || menuChoice.equals("I")
+                    || menuChoice.equals("E")) {
                 processUserChoice(menuChoice);
             }
-        }
-        while (!menuChoice.equals("X"));
-        
+        } while (!menuChoice.equals("X"));
+
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
@@ -37,16 +34,19 @@ public class Midterm {
         System.out.println("\nThis prints inside processUserChoice. Remove this when its working at the end\n");
     }
 
-    public static double[] getThreeNum(Scanner scnr) {
+    public static double[] getUserNum(Scanner scnr) {
+        System.out.println("\nThis prints inside getUserNum. Remove this when its working at the end\n");
         double[] threeNumArray = new double[3];
-        //threeNumArray = scnr.nextDouble();
-        System.out.println("getThreeNum Works");
+
+        while (scnr.hasNext()) {
+            System.out.println(scnr.nextDouble());
+        }
         return threeNumArray;
     }
 
-    public static String userInput(Scanner scnr){
-        //copy/paste System.out.println("");
-        //Menu options
+    public static String userInput(Scanner scnr) {
+        // copy/paste System.out.println("");
+        // Menu options
         System.out.println("Calculator Menu\n");
         System.out.println("Get 3 (N)umbers.");
         System.out.println("(A)dd the numbers.");
@@ -60,9 +60,9 @@ public class Midterm {
         System.out.println("E(X)it.\n");
         System.out.print("Choice: ");
         String menuChoice = scnr.nextLine();
-        System.out.println("");
+        // System.out.println("");
 
         return menuChoice;
     }
+
 }
-*/
