@@ -1,4 +1,4 @@
 /.vscode
 /lib
-/bin/testing.class
-/src/testing.java
+bin/testing.class
+src/testing.java
