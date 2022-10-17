@@ -23,7 +23,12 @@ public class Midterm {
                     || menuChoice.equals("M") || menuChoice.equals("D") || menuChoice.equals("V")
                     || menuChoice.equals("L") || menuChoice.equals("I")
                     || menuChoice.equals("E")) {
-                processUserChoice(menuChoice);
+                numArray = getUserNum(scnr);
+                for (int i = 0; i < numArray.length; i++) {
+                    System.out.print(numArray[i]);
+                }
+            } else {
+                System.out.println("\nError: Please pick one of the list options and try again.\n");
             }
         } while (!menuChoice.equals("X"));
 
@@ -35,11 +40,13 @@ public class Midterm {
     }
 
     public static double[] getUserNum(Scanner scnr) {
-        System.out.println("\nThis prints inside getUserNum. Remove this when its working at the end\n");
-        double[] threeNumArray = new double[3];
+        System.out.println("Enter 3 numbers separated with spaces:");
+        String input = scnr.nextLine();
+        String[] strNumber = input.split(" ");
+        double[] threeNumArray = new double[strNumber.length];
 
-        while (scnr.hasNext()) {
-            System.out.println(scnr.nextDouble());
+        for (int i = 0; i < threeNumArray.length; i++) {
+            threeNumArray[i] += Integer.parseInt(strNumber[i]);
         }
         return threeNumArray;
     }
