@@ -23,9 +23,14 @@ public class Midterm {
                     || menuChoice.equals("M") || menuChoice.equals("D") || menuChoice.equals("V")
                     || menuChoice.equals("L") || menuChoice.equals("I")
                     || menuChoice.equals("E")) {
-                numArray = getUserNum(scnr);
-                for (int i = 0; i < numArray.length; i++) {
-                    System.out.print(numArray[i]);
+
+                switch (menuChoice) {
+                    case "N":
+                        numArray = getUserNum(scnr);
+                        for (int i = 0; i < numArray.length; i++) {
+                            System.out.print(numArray[i]);
+                        }
+                    case "A":
                 }
             } else {
                 System.out.println("\nError: Please pick one of the list options and try again.\n");
