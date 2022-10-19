@@ -41,8 +41,20 @@ public class Midterm {
                         System.out.println("\nAnswer: " + userValues + " = " + subtract);
                         break;
                     case "M":
+                        double multiply = multiplyArray(numArray);
+                        for (int i = 0; i < numArray.length; i++) {
+                            userValues = userValues + numArray[i] + " * ";
+                        }
+                        userValues = userValues.substring(0, userValues.length() - 3);
+                        System.out.println("\nAnswer: " + userValues + " = " + multiply);
                         break;
                     case "D":
+                        double divided = divideArray(numArray);
+                        for (int i = 0; i < numArray.length; i++) {
+                            userValues = userValues + numArray[i] + " / ";
+                        }
+                        userValues = userValues.substring(0, userValues.length() - 3);
+                        System.out.println("\nAnswer: " + userValues + " = " + divided);
                         break;
                     case "V":
                         double average = averageOfArray(numArray);
@@ -69,13 +81,22 @@ public class Midterm {
 
     public static double averageOfArray(double[] numArray) {
         double sum = 0;
-        double average = 0; 
+        double average = 0;
         for (int i = 0; i < numArray.length; i++) {
-            sum = sum + numArray[i];  
+            sum = sum + numArray[i];
             average = sum / 3;
-        }              	
-    return average;
+        }
+        return average;
     }
+
+    public static double divideArray(double[] numArray) {
+        double totalDivide = 1;
+        for (int i = 0; i < numArray.length; i++) {
+            totalDivide /= numArray[i];
+        }
+        return totalDivide;
+    }
+
     // This method will take in the user inputted values and find the largest of
     // them and return that.
     public static double largestFromArray(double[] numArray) {
@@ -85,6 +106,14 @@ public class Midterm {
                 largestNum = numArray[i];
             }
         return largestNum;
+    }
+
+    public static double multiplyArray(double[] numArray) {
+        double totalMulti = 1;
+        for (int i = 0; i < numArray.length; i++) {
+            totalMulti *= numArray[i];
+        }
+        return totalMulti;
     }
 
     // This method will take in the user inputted values and subtract to fund the
@@ -99,11 +128,11 @@ public class Midterm {
 
     public static double sumOfArray(double[] numArray) {
         double sum = 0;
-        
+
         for (int i = 0; i < numArray.length; i++) {
             sum = sum + numArray[i];
         }
-        return sum; 
+        return sum;
     }
 
     public static double[] getUserNum(Scanner scnr) {
@@ -145,5 +174,4 @@ public class Midterm {
         return menuChoice;
     }
 
-
-}//Class ends here
+}// Class ends here
