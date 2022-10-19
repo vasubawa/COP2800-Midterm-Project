@@ -4,33 +4,55 @@ public class Midterm {
     public static void main(String[] args) throws Exception {
         // Variables
         String menuChoice;
-        double[] numArray = new double[3];
-        numArray = null;
+        double[] numArray = new double[0];
+        String userValues = "";
 
-        // scanner
+        // Declaring Scanner for user input.
         Scanner scnr = new Scanner(System.in);
-        // System.out.println(numArray[0]);
 
-        // Method Loops for User Choice
+        // Method Loops for User Choice.
         do {
             menuChoice = userInput(scnr);
-            // System.out.println(numArray);
-            if (numArray == null && !menuChoice.equals("N") && !menuChoice.equals("X")) {
+
+            if ((numArray.length == 0) && !menuChoice.equals("N") && !menuChoice.equals("X")) {
                 System.out.println("\nError: Please select option N from the menu first!\n");
             } else if (menuChoice.equals("X")) {
                 break;
             } else if (menuChoice.equals("N") || menuChoice.equals("A") || menuChoice.equals("S")
                     || menuChoice.equals("M") || menuChoice.equals("D") || menuChoice.equals("V")
-                    || menuChoice.equals("L") || menuChoice.equals("I")
-                    || menuChoice.equals("E")) {
+                    || menuChoice.equals("L") || menuChoice.equals("I") || menuChoice.equals("E")) {
 
                 switch (menuChoice) {
                     case "N":
                         numArray = getUserNum(scnr);
-                        for (int i = 0; i < numArray.length; i++) {
-                            System.out.print(numArray[i]);
-                        }
+                        break;
                     case "A":
+                        break;
+                    case "S":
+                        // Calls the subtractFromArray and puts the processed value into the variable
+                        double subtract = subtractFromArray(numArray);
+                        // Loops through the user input
+                        for (int i = 0; i < numArray.length; i++) {
+                            userValues = userValues + numArray[i] + " - ";
+                        }
+                        userValues = userValues.substring(0, userValues.length() - 3);
+                        System.out.println("\nAnswer: " + userValues + " = " + subtract);
+                        break;
+                    case "M":
+                        break;
+                    case "D":
+                        break;
+                    case "V":
+                        break;
+                    case "L":
+                        double largestNum = largestFromArray(numArray);
+                        System.out.println("The largest number is " + largestNum);
+                    case "I":
+                        break;
+                    case "E":
+                        break;
+                    default:
+                        System.out.println("Error: Invalid choice!");
                 }
             } else {
                 System.out.println("\nError: Please pick one of the list options and try again.\n");
@@ -40,16 +62,37 @@ public class Midterm {
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
-    public static void processUserChoice(String menuChoice) {
-        System.out.println("\nThis prints inside processUserChoice. Remove this when its working at the end\n");
+    // This method will take in the user inputted values and find the largest of
+    // them and return that.
+    public static double largestFromArray(double[] numArray) {
+        double largestNum = 0;
+        for (int i = 0; i < numArray.length; i++)
+            if (largestNum < numArray[i]) {
+                largestNum = numArray[i];
+            }
+        return largestNum;
+    }
+
+    // This method will take in the user inputted values and subtract to fund the
+    // final value and return it.
+    public static double subtractFromArray(double[] numArray) {
+        double totalSubtract = 0;
+        for (int i = 0; i < numArray.length; i++) {
+            totalSubtract -= numArray[i];
+        }
+        return totalSubtract;
     }
 
     public static double[] getUserNum(Scanner scnr) {
-        System.out.println("Enter 3 numbers separated with spaces:");
+        // Asks the user to input x amount of values
+        System.out.print("\nEnter 3 numbers separated with spaces: ");
+        // Takes in the users inputted value and takes out the spaces in between and
+        // throwes it inside a string array
         String input = scnr.nextLine();
         String[] strNumber = input.split(" ");
+        // Declared new double array and take in the length of previous string array
         double[] threeNumArray = new double[strNumber.length];
-
+        // Loops through the users input and converts it into double
         for (int i = 0; i < threeNumArray.length; i++) {
             threeNumArray[i] += Integer.parseInt(strNumber[i]);
         }
@@ -57,9 +100,10 @@ public class Midterm {
     }
 
     public static String userInput(Scanner scnr) {
-        // copy/paste System.out.println("");
-        // Menu options
-        System.out.println("Calculator Menu\n");
+        // Declaring String Variable;
+        String menuChoice;
+        // Menu options for user to choose.
+        System.out.println("\nCalculator Menu\n");
         System.out.println("Get 3 (N)umbers.");
         System.out.println("(A)dd the numbers.");
         System.out.println("(S)ubtract the numbers.");
@@ -71,8 +115,9 @@ public class Midterm {
         System.out.println("Determine the s(I)gn of each number.");
         System.out.println("E(X)it.\n");
         System.out.print("Choice: ");
-        String menuChoice = scnr.nextLine();
-        // System.out.println("");
+        // Take in the users choice and uppercases the value incase it was lowercase
+        menuChoice = scnr.nextLine();
+        menuChoice = menuChoice.toUpperCase();
 
         return menuChoice;
     }
