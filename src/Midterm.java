@@ -51,6 +51,7 @@ public class Midterm {
                     case "L":
                         double largestNum = largestFromArray(numArray);
                         System.out.println("The largest number is " + largestNum);
+                        break;
                     case "I":
                         break;
                     case "E":
