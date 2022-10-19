@@ -66,6 +66,15 @@ public class Midterm {
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
+    public static double averageOfArray(double[] numArray) {
+        double sum = 0;
+        double average = 0; 
+        for (int i = 0; i < numArray.length; i++) {
+            sum = sum + numArray[i];  
+            average = sum / 3;
+        }              	
+    return average;
+    }
     // This method will take in the user inputted values and find the largest of
     // them and return that.
     public static double largestFromArray(double[] numArray) {
@@ -85,6 +94,15 @@ public class Midterm {
             totalSubtract -= numArray[i];
         }
         return totalSubtract;
+    }
+
+    public static double sumOfArray(double[] numArray) {
+        double sum = 0;
+        
+        for (int i = 0; i < numArray.length; i++) {
+            sum = sum + numArray[i];
+        }
+        return sum; 
     }
 
     public static double[] getUserNum(Scanner scnr) {
@@ -127,29 +145,4 @@ public class Midterm {
     }
 
 
- public static double sumOfArray(double[] numArray) {
-    	double sum = 0;
-    	    	
-        for (int i = 0; i < numArray.length; i++) {
-    	sum = sum + numArray[i];
-    	
-        }
-      	return sum; 
-      	
-        }
-
-    
-    public static double averageOfArray(double[] numArray) {
-    	double sum = 0;
-    	double average = 0; 
-
-    	for (int i = 0; i < numArray.length; i++) {
-    		sum = sum + numArray[i];  
-    		average = sum / 3;
-    	}              	
-
-    
-    		return average;
-    }
-    
-}
+}//Class ends here
