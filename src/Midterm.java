@@ -27,6 +27,8 @@ public class Midterm {
                         numArray = getUserNum(scnr);
                         break;
                     case "A":
+                        double sum = sumOfArray(numArray);
+                        System.out.println("\nAnswer: " + sum);
                         break;
                     case "S":
                         // Calls the subtractFromArray and puts the processed value into the variable
@@ -43,6 +45,8 @@ public class Midterm {
                     case "D":
                         break;
                     case "V":
+                        double average = averageOfArray(numArray);
+                        System.out.println("Answer: " + average);
                         break;
                     case "L":
                         double largestNum = largestFromArray(numArray);
@@ -122,4 +126,30 @@ public class Midterm {
         return menuChoice;
     }
 
+
+ public static double sumOfArray(double[] numArray) {
+    	double sum = 0;
+    	    	
+        for (int i = 0; i < numArray.length; i++) {
+    	sum = sum + numArray[i];
+    	
+        }
+      	return sum; 
+      	
+        }
+
+    
+    public static double averageOfArray(double[] numArray) {
+    	double sum = 0;
+    	double average = 0; 
+
+    	for (int i = 0; i < numArray.length; i++) {
+    		sum = sum + numArray[i];  
+    		average = sum / 3;
+    	}              	
+
+    
+    		return average;
+    }
+    
 }
