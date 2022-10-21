@@ -149,7 +149,7 @@ public class Midterm {
         double[] threeNumArray = new double[strNumber.length];
         // Loops through the users input and converts it into double
         for (int i = 0; i < threeNumArray.length; i++) {
-            threeNumArray[i] += Integer.parseInt(strNumber[i]);
+            threeNumArray[i] += Double.parseDouble(strNumber[i]);
         }
         // Returns the value
         return threeNumArray;
