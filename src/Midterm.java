@@ -89,8 +89,12 @@ public class Midterm {
                         System.out.println("The largest number is " + largestFromArray(numArray));
                         break;
                     case "I":
+                        double sign = signOfArray(numArray);
                         break;
                     case "E":
+                        // Calls smallest number From Array method and prints the smallest number
+                        double smallestNum = smallestFromArray(numArray);
+                        System.out.println("The Smallest number is " + smallestNum );
                         break;
                     default:
                         System.out.println("Error: Invalid choice!");
@@ -121,12 +125,15 @@ public class Midterm {
         // Returns the value
         return average;
     }
-
+    // This method will call divide all the numbers in the array
     public static double divideArray(double[] numArray) {
+        // Declare variables
         double totalDivide = 1;
+        // Loops though num array and divides each number
         for (int i = 0; i < numArray.length; i++) {
             totalDivide /= numArray[i];
         }
+        // Returns the value 
         return totalDivide;
     }
 
@@ -174,6 +181,46 @@ public class Midterm {
         }
         // Returns the value
         return totalMulti;
+    }
+    
+    // This method will find the sign of each number in the array
+    public static double signOfArray(double [] numArray) {
+        // Declare variables
+        double sign = 0;
+            // Loops thorugh numArray values 
+            for(int i = 0; i < numArray.length; i++) {
+            }
+            // Determines if each number in array is either positive or negative and prints accordingly 
+            for(int i = 0; i < numArray.length; i++)
+                      if(numArray[i] >= 0)
+                      {
+                        System.out.println(" The number in position " + numArray[i] + " is positive. ");
+                      }
+                      else
+                      {
+                        System.out.println(" The number in position " + numArray[i] + " is negative.");
+                      }
+        // Returns value 
+        return sign;
+        }
+    
+    // This method will take in the values user inputed and will multiply and return
+    // the result.
+    public static double smallestFromArray(double[] numArray){
+        // Declare a variable 
+        double smallestNum;
+        // Loops thorugh numArray and finds the smallest value in the array
+        for (int i = 0; i < numArray.length; i++) {
+            for(int j = i ; j < numArray.length ; j++){
+                if(numArray[i] > numArray[j]){
+                    smallestNum = numArray[i];
+                    numArray[i] = numArray[j];
+                    numArray[j] = smallestNum;
+                }
+            }
+        }
+        // Returns value
+        return numArray[0];
     }
 
     // This method will take in the user inputted values and subtract to fund the
