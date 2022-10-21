@@ -31,7 +31,11 @@ public class Midterm {
                         break;
                     case "A":
                         double sum = sumOfArray(numArray);
-                        System.out.println("\nAnswer: " + sum);
+                        for (int i = 0; i < numArray.length; i++) {
+	                            userValues = userValues + numArray[i] + " + ";
+	                        }
+	                        userValues = userValues.substring(0, userValues.length() - 3);
+	                        System.out.println("\nAnswer: " + userValues + " = " + sum);
                         break;
                     case "S":
                         // Calls the subtractFromArray and puts the processed value into the variable
@@ -45,6 +49,7 @@ public class Midterm {
                         System.out.println("\nAnswer: " + userValues + " = " + subtract);
                         break;
                     case "M":
+<<<<<<< HEAD
                         // Calls the multiplyArray and put the value inside multiply
                         double multiply = multiplyArray(numArray);
                         // Loops through the numArray and add the sign in between
@@ -65,10 +70,18 @@ public class Midterm {
                         // Removes the last extra sign added in the for-loop and prints the final answer
                         userValues = userValues.substring(0, userValues.length() - 3);
                         System.out.println("\nAnswer: " + userValues + " = " + divided);
+=======
+                        break;
+                    case "D":
+>>>>>>> 70c1abf92432b153e5df31284efbf4e8ecf0f2db
                         break;
                     case "V":
                         double average = averageOfArray(numArray);
-                        System.out.println("Answer: " + average);
+                        for (int i = 0; i < numArray.length; i++) {
+	                            userValues = userValues + numArray[i] + " + ";
+	                        }
+	                        userValues = userValues.substring(0, userValues.length() - 3);
+	                        System.out.println("\nAnswer: " + userValues + " / 3 = " + average);
                         break;
                     case "L":
                         // Calls largestFromArray method and prints the answer
@@ -94,13 +107,14 @@ public class Midterm {
 
     public static double averageOfArray(double[] numArray) {
         double sum = 0;
-        double average = 0;
+        double average = 0; 
         for (int i = 0; i < numArray.length; i++) {
-            sum = sum + numArray[i];
+            sum = sum + numArray[i];  
             average = sum / 3;
-        }
-        return average;
+        }              	
+    return average;
     }
+<<<<<<< HEAD
 
     public static double divideArray(double[] numArray) {
         double totalDivide = 1;
@@ -111,6 +125,9 @@ public class Midterm {
     }
 
     // This method will take in the user inputed values and find the largest of
+=======
+    // This method will take in the user inputted values and find the largest of
+>>>>>>> 70c1abf92432b153e5df31284efbf4e8ecf0f2db
     // them and return that.
     public static double largestFromArray(double[] numArray) {
         // Declared needed varables
@@ -125,6 +142,7 @@ public class Midterm {
         return largestNum;
     }
 
+<<<<<<< HEAD
     // This method will take in the user inputed values and find the largest of
     // them and return that.
     public static double multiplyArray(double[] numArray) {
@@ -139,6 +157,9 @@ public class Midterm {
     }
 
     // This method will take in the user inputed values and subtract to fund the
+=======
+    // This method will take in the user inputted values and subtract to fund the
+>>>>>>> 70c1abf92432b153e5df31284efbf4e8ecf0f2db
     // final value and return it.
     public static double subtractFromArray(double[] numArray) {
         // Declared needed varables
@@ -153,11 +174,11 @@ public class Midterm {
 
     public static double sumOfArray(double[] numArray) {
         double sum = 0;
-
+        
         for (int i = 0; i < numArray.length; i++) {
             sum = sum + numArray[i];
         }
-        return sum;
+        return sum; 
     }
 
     public static double[] getUserNum(Scanner scnr) {
@@ -201,4 +222,5 @@ public class Midterm {
         return menuChoice;
     }
 
-}// Class ends here
+
+}//Class ends here
