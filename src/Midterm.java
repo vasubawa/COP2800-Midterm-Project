@@ -100,6 +100,8 @@ public class Midterm {
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
+    /// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
+
     public static double averageOfArray(double[] numArray) {
         double sum = 0;
         double average = 0;
