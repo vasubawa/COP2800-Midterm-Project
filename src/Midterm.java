@@ -1,6 +1,20 @@
+/* 
+ * File name: MPa - Midterm Project - Calculator
+ * Names:  Dhruv Sharma, Mohammed Khan, Hammad Uddin, Emanuel Martins
+ * Course:   COP 2800C at Valencia College 
+ * Professor: David Stendel
+ * Description: This program displays a calculator menu where a user chooses the option to input values and calculates
+ * the following using those values, addition, subtraction, multiplication, division, largest value, smallest value, 
+ * average of values, and sign of each value
+ * Date:  10/22/2022 
+ */
+
+// Packages
 import java.util.Scanner;
 
+// Start of class
 public class Midterm {
+    // Main method
     public static void main(String[] args) throws Exception {
         // Declared Variables
         String menuChoice;
@@ -14,8 +28,8 @@ public class Midterm {
         do {
             // Gets the users Input from the menu
             menuChoice = userInput(scnr);
-            // Checks if the users choice is a valid option or not and checks if the user
-            // inputed numbers in the first run before choosing anything else
+            /* Checks if the users choice is a valid option or not and checks if the user
+             * inputed numbers in the first run before choosing anything else */
             if ((numArray.length == 0) && !menuChoice.equals("N") && !menuChoice.equals("X")) {
                 System.out.println("\nError: Please select option N from the menu first!\n");
             } else if (menuChoice.equals("X")) {
@@ -99,8 +113,8 @@ public class Midterm {
                     default:
                         System.out.println("Error: Invalid choice!");
                 }
-                // Prints an error if the user didn't select one of the give options from the
-                // menu
+                /* Prints an error if the user didn't select one of the give options from the
+                 * menu */
             } else {
                 System.out.println("\nError: Please pick one of the list options and try again.\n");
             }
@@ -141,8 +155,8 @@ public class Midterm {
     public static double[] getUserNum(Scanner scnr) {
         // Asks the user to input x amount of values
         System.out.print("\nEnter 3 numbers separated with spaces: ");
-        // Takes in the users inputed value and takes out the spaces in between and
-        // throwes it inside a string array
+        /* Takes in the users inputed value and takes out the spaces in between and
+         * throwes it inside a string array */
         String input = scnr.nextLine();
         String[] strNumber = input.split(" ");
         // Declared new double array and take in the length of previous string array
@@ -155,13 +169,13 @@ public class Midterm {
         return threeNumArray;
     }
 
-    // This method will take in the user inputted values and find the largest of
-    // them and return that.
+    /* This method will take in the user inputted values and find the largest of
+     * them and return that. */
     public static double largestFromArray(double[] numArray) {
         // Declared needed varables
         double largestNum = 0;
-        // Loops through numArray values and checks/updated largestNum if a number is
-        // greater than the stored value
+        /* Loops through numArray values and checks/updated largestNum if a number is
+         * greater than the stored value */
         for (int i = 0; i < numArray.length; i++)
             if (largestNum < numArray[i]) {
                 largestNum = numArray[i];
@@ -170,8 +184,8 @@ public class Midterm {
         return largestNum;
     }
 
-    // This method will take in the user inputed values and find the largest of
-    // them and return that.
+    /* This method will take in the user inputed values and find the largest of
+     * them and return that. */
     public static double multiplyArray(double[] numArray) {
         // Declared needed varables
         double totalMulti = 1;
@@ -204,8 +218,8 @@ public class Midterm {
         return sign;
         }
     
-    // This method will take in the values user inputed and will multiply and return
-    // the result.
+    /* This method will take in the values user inputed and will multiply and return
+     * the result. */
     public static double smallestFromArray(double[] numArray){
         // Declare a variable 
         double smallestNum;
@@ -223,8 +237,8 @@ public class Midterm {
         return numArray[0];
     }
 
-    // This method will take in the user inputted values and subtract to fund the
-    // final value and return it.
+    /* This method will take in the user inputted values and subtract to fund the
+     * final value and return it. */
     public static double subtractFromArray(double[] numArray) {
         // Declared needed varables
         double totalSubtract = 0;
