@@ -118,6 +118,24 @@ public class Midterm {
         return totalDivide;
     }
 
+    // This method will ask the user to enter any amount of numbers they want
+    public static double[] getUserNum(Scanner scnr) {
+        // Asks the user to input x amount of values
+        System.out.print("\nEnter 3 numbers separated with spaces: ");
+        // Takes in the users inputed value and takes out the spaces in between and
+        // throwes it inside a string array
+        String input = scnr.nextLine();
+        String[] strNumber = input.split(" ");
+        // Declared new double array and take in the length of previous string array
+        double[] threeNumArray = new double[strNumber.length];
+        // Loops through the users input and converts it into double
+        for (int i = 0; i < threeNumArray.length; i++) {
+            threeNumArray[i] += Integer.parseInt(strNumber[i]);
+        }
+        // Returns the value
+        return threeNumArray;
+    }
+
     // This method will take in the user inputted values and find the largest of
     // them and return that.
     public static double largestFromArray(double[] numArray) {
@@ -166,23 +184,6 @@ public class Midterm {
             sum = sum + numArray[i];
         }
         return sum;
-    }
-
-    public static double[] getUserNum(Scanner scnr) {
-        // Asks the user to input x amount of values
-        System.out.print("\nEnter 3 numbers separated with spaces: ");
-        // Takes in the users inputed value and takes out the spaces in between and
-        // throwes it inside a string array
-        String input = scnr.nextLine();
-        String[] strNumber = input.split(" ");
-        // Declared new double array and take in the length of previous string array
-        double[] threeNumArray = new double[strNumber.length];
-        // Loops through the users input and converts it into double
-        for (int i = 0; i < threeNumArray.length; i++) {
-            threeNumArray[i] += Integer.parseInt(strNumber[i]);
-        }
-        // Returns the value
-        return threeNumArray;
     }
 
     // Prints the calculator menu and gets the users choice
