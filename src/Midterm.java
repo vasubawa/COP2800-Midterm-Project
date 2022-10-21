@@ -30,10 +30,13 @@ public class Midterm {
                         numArray = getUserNum(scnr);
                         break;
                     case "A":
+                        // Calls from sumOfArray method
                         double sum = sumOfArray(numArray);
+                        // Loops through numArray and inserts + 
                         for (int i = 0; i < numArray.length; i++) {
                             userValues = userValues + numArray[i] + " + ";
                         }
+                        // Removes the extra sign added in the for-loop and prints addition of array elements = answer
                         userValues = userValues.substring(0, userValues.length() - 3);
                         System.out.println("\nAnswer: " + userValues + " = " + sum);
                         break;
@@ -60,7 +63,7 @@ public class Midterm {
                         System.out.println("\nAnswer: " + userValues + " = " + multiply);
                         break;
                     case "D":
-                        // Calls the divideArray and put the value inside divited
+                        // Calls the divideArray and put the value inside divided
                         double divided = divideArray(numArray);
                         // Loops through the numArray and add the sign in between
                         for (int i = 0; i < numArray.length; i++) {
@@ -71,10 +74,13 @@ public class Midterm {
                         System.out.println("\nAnswer: " + userValues + " = " + divided);
                         break;
                     case "V":
+                        // Calls from averageOfArray
                         double average = averageOfArray(numArray);
+                        // Loops through averageOfArray and adds +
                         for (int i = 0; i < numArray.length; i++) {
                             userValues = userValues + numArray[i] + " + ";
                         }
+                        // Removes extra sign and prints addition of elements in array / 3 = answer
                         userValues = userValues.substring(0, userValues.length() - 3);
                         System.out.println("\nAnswer: " + userValues + " / 3 = " + average);
                         break;
@@ -102,13 +108,17 @@ public class Midterm {
 
     /// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
 
+    // This method will find the average of the elements in the array
     public static double averageOfArray(double[] numArray) {
+        // Declared variable
         double sum = 0;
         double average = 0;
+        // Loops through numArray and adds elements then divides by 3
         for (int i = 0; i < numArray.length; i++) {
             sum = sum + numArray[i];
             average = sum / 3;
         }
+        // Returns the value
         return average;
     }
 
@@ -179,12 +189,15 @@ public class Midterm {
         return totalSubtract;
     }
 
+    // This method finds the sum of elements in an array
     public static double sumOfArray(double[] numArray) {
+        // Declared variable
         double sum = 0;
-
+        // Loops through numArray and adds each element in array
         for (int i = 0; i < numArray.length; i++) {
             sum = sum + numArray[i];
         }
+        // Returns the value
         return sum;
     }
 
