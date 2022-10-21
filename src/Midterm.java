@@ -82,7 +82,7 @@ public class Midterm {
                         }
                         // Removes extra sign and prints addition of elements in array / 3 = answer
                         userValues = userValues.substring(0, userValues.length() - 3);
-                        System.out.println("\nAnswer: " + userValues + " / 3 = " + average);
+                        System.out.println("\nAnswer: " + userValues + " / " + numArray.length + " = " + average);
                         break;
                     case "L":
                         // Calls largestFromArray method and prints the answer
@@ -116,7 +116,7 @@ public class Midterm {
         // Loops through numArray and adds elements then divides by 3
         for (int i = 0; i < numArray.length; i++) {
             sum = sum + numArray[i];
-            average = sum / 3;
+            average = sum / numArray.length;
         }
         // Returns the value
         return average;
