@@ -18,6 +18,7 @@ public class Midterm {
     public static void main(String[] args) throws Exception {
         // Declared Variables
         String menuChoice;
+        double divided;
         double[] numArray = new double[0];
 
         // Declaring Scanner for user input.
@@ -58,8 +59,18 @@ public class Midterm {
                         System.out.println("\nAnswer: " + signToPrint(numArray, "*") + " = " + multiplyArray(numArray));
                         break;
                     case "D":
-                        // Prints out all the numbers divided inside the array
-                        System.out.println("\nAnswer: " + signToPrint(numArray, "/") + " = " + divideArray(numArray));
+                        divided = divideArray(numArray);
+                        /*
+                         * Prints out all the numbers divided inside the array if number was not divided
+                         * by zero
+                         */
+                        if (divided == 3.1415926535) {
+                            System.out.println("\nError: Cannot divide by zero.");
+                        } else {
+                            System.out.println(
+                                    "\nAnswer: " + signToPrint(numArray, "/") + " = " + String.format("%.3f", divided));
+                        }
+
                         break;
                     case "V":
                         // Prints out the average of all numbers inside the array
@@ -120,7 +131,13 @@ public class Midterm {
         double totalDivide = 1;
         // Loops though num array and divides each number
         for (int i = 0; i < numArray.length; i++) {
-            totalDivide /= numArray[i];
+            if (numArray[0] == 0) {
+                return totalDivide = 0;
+            } else if ((numArray[i] == 0) && (numArray[0] != 0)) {
+                return totalDivide = 3.1415926535;
+            } else {
+                totalDivide /= numArray[i];
+            }
         }
         // Returns the value
         return totalDivide;
