@@ -51,8 +51,7 @@ public class Midterm {
                         break;
                     case "S":
                         // Prints out all the numbers subtracted inside the array
-                        System.out.println(
-                                "\nAnswer: " + signToPrint(numArray, "-") + " = " + subtractFromArray(numArray));
+                        System.out.println("\nAnswer: " + signToPrint(numArray, "-") + " = " + subtractFromArray(numArray));
                         break;
                     case "M":
                         // Prints out all the numbers multiplied inside the array
@@ -67,15 +66,12 @@ public class Midterm {
                         if (divided == 3.1415926535) {
                             System.out.println("\nError: Cannot divide by zero.");
                         } else {
-                            System.out.println(
-                                    "\nAnswer: " + signToPrint(numArray, "/") + " = " + String.format("%.3f", divided));
+                            System.out.println("\nAnswer: " + signToPrint(numArray, "/") + " = " + String.format("%.3f", divided));
                         }
                         break;
                     case "V":
                         // Prints out the average of all numbers inside the array
-                        System.out.println("\nAnswer: (" + signToPrint(numArray, "+") + ") / " + numArray.length + " = "
-                                + averageOfArray(
-                                        numArray));
+                        System.out.println("\nAnswer: (" + signToPrint(numArray, "+") + ") / " + numArray.length + " = " + averageOfArray(numArray));
                         break;
                     case "L":
                         // Prints out the largest number from the array
