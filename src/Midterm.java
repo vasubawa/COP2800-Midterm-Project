@@ -70,7 +70,6 @@ public class Midterm {
                             System.out.println(
                                     "\nAnswer: " + signToPrint(numArray, "/") + " = " + String.format("%.3f", divided));
                         }
-
                         break;
                     case "V":
                         // Prints out the average of all numbers inside the array
