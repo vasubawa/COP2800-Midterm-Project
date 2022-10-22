@@ -1,7 +1,10 @@
-/.vscode
-/lib
+.vscode
+lib
 bin/testing.class
 src/testing.java
 .vscode/settings.json
 Group Evaluation Form.docx
 AvailabilitySchedule.xlsx
+Midterm Project Updated.docx
+MPa - Midterm Project - Calculator Fixed.docx
+.gitignore

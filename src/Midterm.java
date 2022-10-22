@@ -56,7 +56,8 @@ public class Midterm {
                         break;
                     case "M":
                         // Prints out all the numbers multiplied inside the array
-                        System.out.println("\nAnswer: " + signToPrint(numArray, "*") + " = " + multiplyArray(numArray));
+                        System.out.println("\nAnswer: " + signToPrint(numArray, "*") + " = "
+                                + String.format("%.3f", multiplyArray(numArray)));
                         break;
                     case "D":
                         divided = divideArray(numArray);
