@@ -75,7 +75,7 @@ public class Midterm {
                     case "V":
                         // Prints out the average of all numbers inside the array
                         System.out.println("\nAnswer: (" + signToPrint(numArray, "+") + ") / " + numArray.length + " = "
-                                + averageOfArray(numArray));
+                                + String.format("%.3f", averageOfArray(numArray)));
                         break;
                     case "L":
                         // Prints out the largest number from the array
