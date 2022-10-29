@@ -23,7 +23,7 @@ public class Calculator {
 		String menuChoice;
 		//char menuChoice = '\0';
 		double divided = 0.0;
-		double[] numArray = new double[]{0,0,0}; //change numArray to nums 
+		double[] nums = new double[]{0,0,0}; //change numArray to nums 
 		Scanner scnr = new Scanner(System.in);
 		// Calculator
 		do {
@@ -33,7 +33,7 @@ public class Calculator {
 			 * Checks if the users choice is a valid option or not and checks if the user
 			 * inputed numbers in the first run before choosing anything else
 			 */
-			if ((numArray.length == 0) && !menuChoice.equals("N") && !menuChoice.equals("X")) {
+			if ((nums.length == 0) && !menuChoice.equals("N") && !menuChoice.equals("X")) {
 				System.out.println("\nError: Please select option N from the menu first!\n");
 			} else if (menuChoice.equals("X")) {
 				break;
@@ -44,24 +44,24 @@ public class Calculator {
 				switch (menuChoice) {
 					case "N":
 						// Gets the users numbers and puts them in a array for further use
-						numArray = getUserNum(scnr);
+						nums = getUserNum(scnr);
 						break;
 					case "A":
 						// Prints out all added numbers inside the array
-						System.out.println("\nAnswer: " + signToPrint(numArray, "+") + " = " + sumOfArray(numArray));
+						System.out.println("\nAnswer: " + signToPrint(nums, "+") + " = " + sumOfArray(nums));
 						break;
 					case "S":
 						// Prints out all the numbers subtracted inside the array
-						System.out.println("\nAnswer: " + signToPrint(numArray, "-") + " = " 
-							+ subtractFromArray(numArray));
+						System.out.println("\nAnswer: " + signToPrint(nums, "-") + " = " 
+							+ subtractFromArray(nums));
 						break;
 					case "M":
 						// Prints out all the numbers multiplied inside the array
-						System.out.println("\nAnswer: " + signToPrint(numArray, "*") + " = "
-							+ String.format("%.3f", multiplyArray(numArray)));
+						System.out.println("\nAnswer: " + signToPrint(nums, "*") + " = "
+							+ String.format("%.3f", multiplyArray(nums)));
 						break;
 					case "D":
-						divided = divideArray(numArray);
+						divided = divideArray(nums);
 						/*
 						 * Prints out all the numbers divided inside the array if number was not divided
 						 * by zero
@@ -71,27 +71,27 @@ public class Calculator {
 							System.out.println("\nError: Cannot divide by zero.");
 						} else {
 							System.out.println(
-									"\nAnswer: " + signToPrint(numArray, "/") + " = " + String.format("%.3f", divided));
+									"\nAnswer: " + signToPrint(nums, "/") + " = " + String.format("%.3f", divided));
 						}
 						break;
 					case "V":
 						// Prints out the average of all numbers inside the array
-						System.out.println("\nAnswer: (" + signToPrint(numArray, "+") + ") / " + numArray.length + " = "
-								+ String.format("%.3f", averageOfArray(numArray)));
+						System.out.println("\nAnswer: (" + signToPrint(nums, "+") + ") / " + nums.length + " = "
+								+ String.format("%.3f", averageOfArray(nums)));
 						break;
 					case "L":
 						// Prints out the largest number from the array
-						System.out.println("\nThe largest number is " + largestFromArray(numArray));
+						System.out.println("\nThe largest number is " + largestFromArray(nums));
 						break;
 					case "I":
 						// Calls the method which will print if the numbers in the array are positive or
 						// negative
-						System.out.println("\n" + signOfArray(numArray));
+						System.out.println("\n" + signOfArray(nums));
 						;
 						break;
 					case "E":
 						// Prints out the smallest number from the array
-						System.out.println("\nThe smallest number is " + smallestFromArray(numArray));
+						System.out.println("\nThe smallest number is " + smallestFromArray(nums));
 						break;
 					default:
 						// Prints out an error if one of the cases didn't match
@@ -113,31 +113,31 @@ public class Calculator {
 	/// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
 
 	// This method will find the average of the elements in the array
-	public static double averageOfArray(double[] numArray) {
+	public static double averageOfArray(double[] nums) {
 		// Declared variable
 		double sum = 0;
 		double average = 0;
-		// Loops through numArray and adds elements then divides by 3
-		for (int i = 0; i < numArray.length; i++) {
-			sum = sum + numArray[i];
-			average = sum / numArray.length;
+		// Loops through nums and adds elements then divides by 3
+		for (int i = 0; i < nums.length; i++) {
+			sum = sum + nums[i];
+			average = sum / nums.length;
 		}
 		// Returns the value
 		return average;
 	}
 
 	// This method will call divide all the numbers in the array
-	public static double divideArray(double[] numArray) {
+	public static double divideArray(double[] nums) {
 		// Declare variables
 		double totalDivide = 1;
 		// Loops though num array and divides each number
-		for (int i = 0; i < numArray.length; i++) {
-			if (numArray[0] == 0) {
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[0] == 0) {
 				return totalDivide = 0;
-			} else if ((numArray[i] == 0) && (numArray[0] != 0)) {
+			} else if ((nums[i] == 0) && (nums[0] != 0)) {
 				return totalDivide = 3.1415926535;
 			} else {
-				totalDivide /= numArray[i];
+				totalDivide /= nums[i];
 			}
 		}
 		// Returns the value
@@ -168,16 +168,16 @@ public class Calculator {
 	 * This method will take in the user inputted values and find the largest of
 	 * them and return that.
 	 */
-	public static double largestFromArray(double[] numArray) {
+	public static double largestFromArray(double[] nums) {
 		// Declared needed varables
 		double largestNum = 0;
 		/*
-		 * Loops through numArray values and checks/updated largestNum if a number is
+		 * Loops through nums values and checks/updated largestNum if a number is
 		 * greater than the stored value
 		 */
-		for (int i = 0; i < numArray.length; i++)
-			if (largestNum < numArray[i]) {
-				largestNum = numArray[i];
+		for (int i = 0; i < nums.length; i++)
+			if (largestNum < nums[i]) {
+				largestNum = nums[i];
 			}
 		// Returns the value
 		return largestNum;
@@ -187,41 +187,41 @@ public class Calculator {
 	 * This method will take in the user inputed values and find the largest of
 	 * them and return that.
 	 */
-	public static double multiplyArray(double[] numArray) {
+	public static double multiplyArray(double[] nums) {
 		// Declared needed varables
 		double totalMulti = 1;
-		// Loops through numArray values and multiplies them
-		for (int i = 0; i < numArray.length; i++) {
-			totalMulti *= numArray[i];
+		// Loops through nums values and multiplies them
+		for (int i = 0; i < nums.length; i++) {
+			totalMulti *= nums[i];
 		}
 		// Returns the value
 		return totalMulti;
 	}
 
 	// This method will find the sign of each number in the array
-	public static double signOfArray(double[] numArray) {
+	public static double signOfArray(double[] nums) {
 		// Declare variables
 		double sign = 0;
 		// Determines if each number in array is either positive or negative and prints
 		// accordingly
-		for (int i = 0; i < numArray.length; i++)
-			if (numArray[i] >= 0) {
-				System.out.println("The number in position " + numArray[i] + " is positive. ");
+		for (int i = 0; i < nums.length; i++)
+			if (nums[i] >= 0) {
+				System.out.println("The number in position " + nums[i] + " is positive. ");
 			} else {
-				System.out.println("The number in position " + numArray[i] + " is negative.");
+				System.out.println("The number in position " + nums[i] + " is negative.");
 			}
 		// Returns value
 		return sign;
 	}
 
 	// This method will figure out what math sign needs to be added between numbers
-	public static String signToPrint(double[] numArray, String sign) {
+	public static String signToPrint(double[] nums, String sign) {
 		// Declared Variable
 		String signForPrint = "";
 		// Loops through all the numbers inside the array and add the corresponding
 		// signs
-		for (int i = 0; i < numArray.length; i++) {
-			signForPrint = signForPrint + numArray[i] + " " + sign + " ";
+		for (int i = 0; i < nums.length; i++) {
+			signForPrint = signForPrint + nums[i] + " " + sign + " ";
 		}
 		// Removes the last extra sign added in the for-loop and prints the final answer
 		signForPrint = signForPrint.substring(0, signForPrint.length() - 3);
@@ -233,45 +233,45 @@ public class Calculator {
 	 * This method will take in the values user inputed and will multiply and return
 	 * the result.
 	 */
-	public static double smallestFromArray(double[] numArray) {
+	public static double smallestFromArray(double[] nums) {
 		// Declare a variable
 		double smallestNum;
-		// Loops thorugh numArray and finds the smallest value in the array
-		for (int i = 0; i < numArray.length; i++) {
-			for (int j = i; j < numArray.length; j++) {
-				if (numArray[i] > numArray[j]) {
-					smallestNum = numArray[i];
-					numArray[i] = numArray[j];
-					numArray[j] = smallestNum;
+		// Loops thorugh nums and finds the smallest value in the array
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = i; j < nums.length; j++) {
+				if (nums[i] > nums[j]) {
+					smallestNum = nums[i];
+					nums[i] = nums[j];
+					nums[j] = smallestNum;
 				}
 			}
 		}
 		// Returns value
-		return numArray[0];
+		return nums[0];
 	}
 
 	/*
 	 * This method will take in the user inputted values and subtract to fund the
 	 * final value and return it.
 	 */
-	public static double subtractFromArray(double[] numArray) {
+	public static double subtractFromArray(double[] nums) {
 		// Declared needed varables
 		double totalSubtract = 0;
-		// Loops through numArray values and subtracts them
-		for (int i = 0; i < numArray.length; i++) {
-			totalSubtract -= numArray[i];
+		// Loops through nums values and subtracts them
+		for (int i = 0; i < nums.length; i++) {
+			totalSubtract -= nums[i];
 		}
 		// Returns the value
 		return totalSubtract;
 	}
 
 	// This method finds the sum of elements in an array
-	public static double sumOfArray(double[] numArray) {
+	public static double sumOfArray(double[] nums) {
 		// Declared variable
 		double sum = 0;
-		// Loops through numArray and adds each element in array
-		for (int i = 0; i < numArray.length; i++) {
-			sum = sum + numArray[i];
+		// Loops through nums and adds each element in array
+		for (int i = 0; i < nums.length; i++) {
+			sum = sum + nums[i];
 		}
 		// Returns the value
 		return sum;
