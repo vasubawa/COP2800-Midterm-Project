@@ -1,14 +1,15 @@
 /* 
  * File name:	Calculator.java
- * Names:		Dhruv Sharma, Mohammed Khan, Hammad Uddin, and Emanuel Martins
- * Course:		COP 2800C at Valencia College 
+ * Names:	Dhruv Sharma, Mohammed Khan, Hammad Uddin, and Emanuel Martins
+ * Course:	COP 2800C at Valencia College 
  * Professor:	David Stendel
  * Description:	This program displays a calculator menu where a user chooses the option to input 
- * 				values and calculates the following using those values, addition, subtraction, 
- * 				multiplication, division, largest value, smallest value, average of values, and 
- * 				sign of each value.
- * 				Options
- * Date:  		10/22/22 
+ * 		values and calculates the following using those values, addition, subtraction, 
+ * 		multiplication, division, largest value, smallest value, average of values, and 
+ * 		sign of each value.
+ * 		Options		Description
+ *
+ * Date:  	10/22/22 
  */
 
 // Packages
