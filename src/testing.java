@@ -20,7 +20,7 @@ public class testing {
         char menuChoice = '\n';
         double[] nums = new double[3];
         Scanner scnr = new Scanner(System.in);
-        boolean getNumbers = false;
+        boolean numbersEntered = false;
         // Method Loops for User Choice.
         do {
             // Gets the users Input from the menu
@@ -35,6 +35,7 @@ public class testing {
 
     public static double[] processChoice(char menuChoice, Scanner scnr, double[] nums){
         double[] numsArr = nums;
+
         switch (menuChoice) {
             case 'N':
                 numsArr = getUserNum(scnr);
@@ -130,6 +131,7 @@ public class testing {
         for (int i = 0; i < threeNumArray.length; i++) {
             threeNumArray[i] += Double.parseDouble(strNumber[i]);
         }
+
         // Returns the value
         return threeNumArray;
     }
