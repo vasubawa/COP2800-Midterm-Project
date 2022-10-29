@@ -23,8 +23,9 @@ public class Calculator {
 		String menuChoice;
 		//char menuChoice = '\0';
 		double divided = 0.0;
-		double[] nums = new double[]{0,0,0}; //change numArray to nums 
+		double[] nums = new double[3];
 		Scanner scnr = new Scanner(System.in);
+		//boolean getNumbers = false;
 		// Calculator
 		do {
 			// Input
