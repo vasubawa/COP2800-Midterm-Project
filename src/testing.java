@@ -27,107 +27,44 @@ public class testing {
             // Gets the users Input from the menu
             menuChoice = userInput(scnr).charAt(0);
             nums = processChoice(menuChoice, scnr, nums);
-            numbersEntered = processChoice(menuChoice, scnr, numbersEntered);
-            System.out.println(numbersEntered + "Prints after numbers were enteres(hopefully) and remove this when done");
+            numbersEntered = processChoice(menuChoice, numbersEntered);
         } while (menuChoice != 'X');
         // Prints good-bye message
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
     /// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
-    public static double[] processChoice(char menuChoice, Scanner scnr, double[] nums){
-        double[] numsArr = nums;
-        boolean numbersEntered = false;
-        switch (menuChoice) {
-            case 'N':
-                numsArr = getUserNum(scnr, numbersEntered);
-                System.out.println("Inside N case currently");
-                break;
-
-            case 'A':
-                System.out.println("Inside A case currently");
-                break;
-
-            case 'S':
-                System.out.println("\nAnswer: " + signToPrint(numsArr, "-") + " = " 
-                + subtractFromArray(numsArr));
-                System.out.println("Inside S case currently");
-                break;
-
-            case 'M':
-                System.out.println("Inside M case currently");
-                break;
-
-            case 'D':
-                System.out.println("Inside D case currently");
-                break;
-
-            case 'V':
-                System.out.println("Inside V case currently");
-                break;
-
-            case 'L':
-                System.out.println("Inside L case currently");
-                break;
-
-            case 'E':
-                System.out.println("Inside E case currently");
-                break;
-
-            case 'I':
-                System.out.println("Inside I case currently");
-                break;
-
-            default:
-                // Prints out an error if one of the cases didn't match
-                System.out.println("Error: Invalid choice!");
-        }
-        return numsArr;
-    }
-
-    public static boolean processChoice(char menuChoice, Scanner scnr, boolean numbersEntered){
-        switch (menuChoice) {
-            case 'N':
-                numbersEntered = true;
-                break;
-        }
-        return numbersEntered;
-    }
-
     // This method will find the average of the elements in the array
-    public static double averageOfArray(double[] numArray) {
+    public static double averageNum(double[] nums) {
         // Declared variable
         double sum = 0;
         double average = 0;
         // Loops through numArray and adds elements then divides by 3
-        for (int i = 0; i < numArray.length; i++) {
-            sum = sum + numArray[i];
-            average = sum / numArray.length;
+        for (int i = 0; i < nums.length; i++) {
+            sum = sum + nums[i];
+            average = sum / nums.length;
         }
         // Returns the value
         return average;
     }
 
-    // This method will call divide all the numbers in the array
-    public static double divideArray(double[] numArray) {
-        // Declare variables
-        double totalDivide = 1;
-        // Loops though num array and divides each number
-        for (int i = 0; i < numArray.length; i++) {
-            if (numArray[0] == 0) {
-                return totalDivide = 0;
-            } else if ((numArray[i] == 0) && (numArray[0] != 0)) {
-                return totalDivide = 3.1415926535;
-            } else {
-                totalDivide /= numArray[i];
-            }
+    /*
+     * This method will take in the user inputted values and subtract to fund the
+     * final value and return it.
+     */
+    public static double differenceNum(double[] nums) {
+        // Declared needed varables
+        double totalSubtract = nums[0];
+        // Loops through numArray values and subtracts them
+        for (int i = 1; i < nums.length; i++) {
+            totalSubtract -= nums[i];
         }
         // Returns the value
-        return totalDivide;
+        return totalSubtract;
     }
-
+    
     // This method will ask the user to enter any amount of numbers they want
-    public static double[] getUserNum(Scanner scnr, boolean numbersEntered) {
+    public static double[] getUserNum(Scanner scnr) {
         // Asks the user to input x amount of values
         System.out.print("\nEnter 3 numbers separated with spaces: ");
         /*
@@ -147,114 +84,189 @@ public class testing {
         return threeNumArray;
     }
 
-    /*
+        /*
      * This method will take in the user inputted values and find the largest of
      * them and return that.
      */
-    public static double largestFromArray(double[] numArray) {
+    public static double largestNum(double[] nums) {
         // Declared needed varables
         double largestNum = 0;
         /*
          * Loops through numArray values and checks/updated largestNum if a number is
          * greater than the stored value
          */
-        for (int i = 0; i < numArray.length; i++)
-            if (largestNum < numArray[i]) {
-                largestNum = numArray[i];
+        for (int i = 0; i < nums.length; i++)
+            if (largestNum < nums[i]) {
+                largestNum = nums[i];
             }
         // Returns the value
         return largestNum;
+    }
+
+    // This method will find the sign of each number in the array
+    public static double numSign(double[] nums) {
+        // Declare variables
+        double sign = 0;
+        // Determines if each number in array is either positive or negative and prints
+        // accordingly
+        for (int i = 0; i < nums.length; i++)
+            if (nums[i] >= 0) {
+                System.out.println("The number in position " + nums[i] + " is positive. ");
+            } else {
+                System.out.println("The number in position " + nums[i] + " is negative.");
+            }
+        // Returns value
+        return sign;
+    }
+    
+    public static void printCommonAnswer(double[] nums, String sign, double answer, char menuChoice) {
+        
+        switch(menuChoice){
+            case 'V':
+                System.out.print("\nAnswer: (" + nums[0]);
+                for(int i = 1; i < nums.length; i++){
+                    System.out.print(" " + sign + " " + nums[i]);
+                }
+                System.out.print(") / " + nums.length + " = " + String.format("%.3f",answer) 
+                    + "\n");
+                break;
+
+            default:
+                System.out.print("\nAnswer: " + nums[0]);
+                for(int i = 1; i < nums.length; i++){
+                    System.out.print(" " + sign + " " + nums[i]);
+                }
+                System.out.println(" = " + String.format("%.3f",answer) + "\n");
+        }
+    }
+
+    public static double[] processChoice(char menuChoice, Scanner scnr, double[] nums){
+        double answer = 0.0;
+        switch (menuChoice) {
+            case 'N':
+            nums = getUserNum(scnr);
+                System.out.println("Inside N case currently");
+                break;
+
+            case 'A':
+                answer = sumNum(nums);
+                printCommonAnswer(nums ,"+", answer, menuChoice);  
+                System.out.println("Inside A case currently");
+                break;
+
+            case 'S':
+                answer = differenceNum(nums);
+                printCommonAnswer(nums ,"-", answer, menuChoice);
+                //System.out.println("\nAnswer: " + signToPrint(nums, "-") + " = " + subtractFromArray(nums));
+                System.out.println("Inside S case currently");
+                break;
+
+            case 'M':
+                answer = productNum(nums);
+                printCommonAnswer(nums ,"*", answer, menuChoice);  
+                System.out.println("Inside M case currently");
+                break;
+
+            case 'D':
+                answer = quotientNum(nums);
+                printCommonAnswer(nums ,"/", answer, menuChoice);
+                System.out.println("Inside D case currently");
+                break;
+
+            case 'V':
+                answer = averageNum(nums);
+                printCommonAnswer(nums ,"+", answer, menuChoice);
+                System.out.println("Inside V case currently");
+                break;
+
+            case 'L':
+                System.out.println("Inside L case currently");
+                break;
+
+            case 'E':
+                System.out.println("Inside E case currently");
+                break;
+
+            case 'I':
+                System.out.println("Inside I case currently");
+                break;
+
+            default:
+                // Prints out an error if one of the cases didn't match
+                System.out.println("\n\tError: Invalid choice!");
+        }
+        return nums;
+    }
+
+    public static boolean processChoice(char menuChoice, boolean numbersEntered){
+        switch (menuChoice) {
+            case 'N':
+                numbersEntered = true;
+                break;
+        }
+        return numbersEntered;
     }
 
     /*
      * This method will take in the user inputed values and find the largest of
      * them and return that.
      */
-    public static double multiplyArray(double[] numArray) {
+    public static double productNum(double[] nums) {
         // Declared needed varables
         double totalMulti = 1;
         // Loops through numArray values and multiplies them
-        for (int i = 0; i < numArray.length; i++) {
-            totalMulti *= numArray[i];
+        for (int i = 0; i < nums.length; i++) {
+            totalMulti *= nums[i];
         }
         // Returns the value
         return totalMulti;
     }
 
-    // This method will find the sign of each number in the array
-    public static double signOfArray(double[] numsArr) {
+    //THIS NEEDS FIXING 2.7 -3 5.2946 DOES NOT GIVE -0.170 
+    // This method will call divide all the numbers in the array
+    public static double quotientNum(double[] nums) {;
         // Declare variables
-        double sign = 0;
-        // Determines if each number in array is either positive or negative and prints
-        // accordingly
-        for (int i = 0; i < numsArr.length; i++)
-            if (numsArr[i] >= 0) {
-                System.out.println("The number in position " + numsArr[i] + " is positive. ");
+        double totalDivide = 1;
+        // Loops though num array and divides each number
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[0] == 0) {
+                totalDivide = 0;
             } else {
-                System.out.println("The number in position " + numsArr[i] + " is negative.");
+                totalDivide /= nums[i];
             }
-        // Returns value
-        return sign;
-    }
-
-    // This method will figure out what math sign needs to be added between numbers
-    public static String signToPrint(double[] numsArr, String sign) {
-        // Declared Variable
-        String signForPrint = "";
-        // Loops through all the numbers inside the array and add the corresponding
-        // signs
-        for (int i = 0; i < numsArr.length; i++) {
-            signForPrint = signForPrint + numsArr[i] + " " + sign + " ";
         }
-        // Removes the last extra sign added in the for-loop and prints the final answer
-        signForPrint = signForPrint.substring(0, signForPrint.length() - 3);
-
-        return signForPrint;
+        // Returns the value
+        return totalDivide;
     }
 
     /*
      * This method will take in the values user inputed and will multiply and return
      * the result.
      */
-    public static double smallestFromArray(double[] numArray) {
+    public static double smallestNum(double[] nums) {
         // Declare a variable
         double smallestNum;
         // Loops thorugh numArray and finds the smallest value in the array
-        for (int i = 0; i < numArray.length; i++) {
-            for (int j = i; j < numArray.length; j++) {
-                if (numArray[i] > numArray[j]) {
-                    smallestNum = numArray[i];
-                    numArray[i] = numArray[j];
-                    numArray[j] = smallestNum;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                if (nums[i] > nums[j]) {
+                    smallestNum = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = smallestNum;
                 }
             }
         }
         // Returns value
-        return numArray[0];
-    }
-
-    /*
-     * This method will take in the user inputted values and subtract to fund the
-     * final value and return it.
-     */
-    public static double subtractFromArray(double[] numsArr) {
-        // Declared needed varables
-        double totalSubtract = 0;
-        // Loops through numArray values and subtracts them
-        for (int i = 0; i < numsArr.length; i++) {
-            totalSubtract -= numsArr[i];
-        }
-        // Returns the value
-        return totalSubtract;
+        return nums[0];
     }
 
     // This method finds the sum of elements in an array
-    public static double sumOfArray(double[] numArray) {
+    public static double sumNum(double[] nums) {
         // Declared variable
         double sum = 0;
         // Loops through numArray and adds each element in array
-        for (int i = 0; i < numArray.length; i++) {
-            sum = sum + numArray[i];
+        for (int i = 0; i < nums.length; i++) {
+            sum = sum + nums[i];
         }
         // Returns the value
         return sum;
@@ -279,8 +291,9 @@ public class testing {
         System.out.print("Choice: ");
 
         menuChoice = scnr.nextLine();
+        menuChoice = menuChoice.toUpperCase();
         // Returns the choice
         return menuChoice;
     }
 
-}// Class ends here
+}
