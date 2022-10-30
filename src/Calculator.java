@@ -1,15 +1,29 @@
 /* 
  * File name:	Calculator.java
- * Names:	Dhruv Sharma, Mohammed Khan, Hammad Uddin, and Emanuel Martins
+ * Names:	Mohammed Khan, Emanuel Martins, Dhruv Sharma, and Hammad Uddin 
  * Course:	COP 2800C at Valencia College 
  * Professor:	David Stendel
- * Description:	This program displays a calculator menu where a user chooses the option to input 
- * 		values and calculates the following using those values, addition, subtraction, 
- * 		multiplication, division, largest value, smallest value, average of values, and 
- * 		sign of each value.
- * 		Options		Description
+ * Description:	This program displays a menu to the user with the following options: 
+ *      	Option			Description 
+ *      	Get Numbers		Ask the user for several numbers. 
+ *      	Add Numbers		Adds the numbers entered by the user. 
+ * 		Subtract Numbers	Subtracts the numbers entered by the user.
+ *		Multiply Numbers	Multiplies the numbers entered by the user.
+ *		Divide Numbers		Divides the numbers entered by the user.
+ *		Average of Numbers	Finds the average of the numbers entered by the user.
+ *		Largest of Numbers	Finds the largest of the numbers entered by the user.
+ *		Smallest of Numbers	Finds the smallest of the numbers entered by the user.
+ *		Sign of Numbers		Finds the average of the numbers entered by the user.
+ * 		
+ *		The program also displays the following errors: 
+ *		When N is not input first:	Error: Please select option N from the menu first!
+ *		When invalid input is entered:	Error: Invalid choice!
+ *		When zero is input as number:	Error: Cannot divide by zero!
+ *		
+ *		The program also displays an exit message:
+ *		Thank you for using Team 2's calculator! Good-bye!
  *
- * Date:  	10/22/22 
+ * Date:  	10/21/22 
  */
 
 // Packages
@@ -17,9 +31,13 @@ import java.util.Scanner;
 
 // Start of class
 public class Calculator {
-	// Main method
+	/**
+	 * This method contains the entire program.
+	 *
+	 *@param number An array of any numbers.
+	 */
 	public static void main(String[] args) throws Exception {
-		// Declared Variables
+		// Variables
 		String menuChoice;
 		//char menuChoice = '\0';
 		double divided = 0.0;
@@ -100,22 +118,27 @@ public class Calculator {
 				}
 				/*
 				 * Prints an error if the user didn't select one of the give options from the
-				 * menu
+				 * menu.
 				 */
 			} else {
 				System.out.println("\nError: Please pick one of the list options and try again.\n");
 			}
 			// Ends the loop if the user selects "x"
 		} while (!menuChoice.equals("X"));
-		// Prints good-bye message
+		// Exit message.
 		System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
 	}
 
 	/// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
 
-	// This method will find the average of the elements in the array
+	/**
+	 *This method will find the average of the elements in the array.
+	 *
+	 *@param numbers An array of any numbers.
+	 *@return The average of the numbers.
+	 */
 	public static double averageOfArray(double[] nums) {
-		// Declared variable
+		// Variables
 		double sum = 0;
 		double average = 0;
 		// Loops through nums and adds elements then divides by 3
