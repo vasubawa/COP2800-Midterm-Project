@@ -22,23 +22,25 @@ public class testing {
         Scanner scnr = new Scanner(System.in);
         boolean numbersEntered = false;
         // Method Loops for User Choice.
+        System.out.println(numbersEntered);
         do {
             // Gets the users Input from the menu
             menuChoice = userInput(scnr).charAt(0);
             nums = processChoice(menuChoice, scnr, nums);
+            numbersEntered = processChoice(menuChoice, scnr, numbersEntered);
+            System.out.println(numbersEntered + "Prints after numbers were enteres(hopefully) and remove this when done");
         } while (menuChoice != 'X');
         // Prints good-bye message
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
     /// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
-
     public static double[] processChoice(char menuChoice, Scanner scnr, double[] nums){
         double[] numsArr = nums;
-
+        boolean numbersEntered = false;
         switch (menuChoice) {
             case 'N':
-                numsArr = getUserNum(scnr);
+                numsArr = getUserNum(scnr, numbersEntered);
                 System.out.println("Inside N case currently");
                 break;
 
@@ -83,6 +85,15 @@ public class testing {
         return numsArr;
     }
 
+    public static boolean processChoice(char menuChoice, Scanner scnr, boolean numbersEntered){
+        switch (menuChoice) {
+            case 'N':
+                numbersEntered = true;
+                break;
+        }
+        return numbersEntered;
+    }
+
     // This method will find the average of the elements in the array
     public static double averageOfArray(double[] numArray) {
         // Declared variable
@@ -116,7 +127,7 @@ public class testing {
     }
 
     // This method will ask the user to enter any amount of numbers they want
-    public static double[] getUserNum(Scanner scnr) {
+    public static double[] getUserNum(Scanner scnr, boolean numbersEntered) {
         // Asks the user to input x amount of values
         System.out.print("\nEnter 3 numbers separated with spaces: ");
         /*
