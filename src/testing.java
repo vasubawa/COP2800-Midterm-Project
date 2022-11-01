@@ -26,8 +26,13 @@ public class testing {
         do {
             // Gets the users Input from the menu
             menuChoice = userInput(scnr).charAt(0);
-            nums = processChoice(menuChoice, scnr, nums);
-            numbersEntered = processChoice(menuChoice, numbersEntered);
+            if (menuChoice != 'N' && numbersEntered == false){
+                System.out.println("\n\tError: Please select option N from the menu first!");
+            } else{
+                nums = processChoice(menuChoice, scnr, nums);
+                numbersEntered = processChoice(menuChoice, numbersEntered);
+            }
+            
         } while (menuChoice != 'X');
         // Prints good-bye message
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
@@ -103,12 +108,21 @@ public class testing {
         return largestNum;
     }
 
+    public static void largestOrSmallestNum(double answer, char c) {
+        if(c == 'L'){
+            System.out.println("\nThe largest number is: " + String.format("%.3f",answer));
+        }else{
+            System.out.println("\nThe smallest number is: " + String.format("%.3f",answer));
+        }
+    }
+
     // This method will find the sign of each number in the array
     public static double numSign(double[] nums) {
         // Declare variables
         double sign = 0;
         // Determines if each number in array is either positive or negative and prints
         // accordingly
+        System.out.println("");
         for (int i = 0; i < nums.length; i++)
             if (nums[i] >= 0) {
                 System.out.println("The number in position " + nums[i] + " is positive. ");
@@ -123,18 +137,18 @@ public class testing {
         
         switch(menuChoice){
             case 'V':
-                System.out.print("\nAnswer: (" + nums[0]);
+                System.out.print("\nAnswer: (" + String.format("%.3f",nums[0]));
                 for(int i = 1; i < nums.length; i++){
-                    System.out.print(" " + sign + " " + nums[i]);
+                    System.out.print(" " + sign + " " + String.format("%.3f",nums[i]));
                 }
                 System.out.print(") / " + nums.length + " = " + String.format("%.3f",answer) 
                     + "\n");
                 break;
 
             default:
-                System.out.print("\nAnswer: " + nums[0]);
+                System.out.print("\nAnswer: " + String.format("%.3f",nums[0]));
                 for(int i = 1; i < nums.length; i++){
-                    System.out.print(" " + sign + " " + nums[i]);
+                    System.out.print(" " + sign + " " + String.format("%.3f",nums[i]));
                 }
                 System.out.println(" = " + String.format("%.3f",answer) + "\n");
         }
@@ -144,51 +158,47 @@ public class testing {
         double answer = 0.0;
         switch (menuChoice) {
             case 'N':
-            nums = getUserNum(scnr);
-                System.out.println("Inside N case currently");
+                nums = getUserNum(scnr);
                 break;
 
             case 'A':
                 answer = sumNum(nums);
                 printCommonAnswer(nums ,"+", answer, menuChoice);  
-                System.out.println("Inside A case currently");
                 break;
 
             case 'S':
                 answer = differenceNum(nums);
                 printCommonAnswer(nums ,"-", answer, menuChoice);
-                //System.out.println("\nAnswer: " + signToPrint(nums, "-") + " = " + subtractFromArray(nums));
-                System.out.println("Inside S case currently");
                 break;
 
             case 'M':
                 answer = productNum(nums);
                 printCommonAnswer(nums ,"*", answer, menuChoice);  
-                System.out.println("Inside M case currently");
                 break;
 
             case 'D':
                 answer = quotientNum(nums);
                 printCommonAnswer(nums ,"/", answer, menuChoice);
-                System.out.println("Inside D case currently");
                 break;
 
             case 'V':
                 answer = averageNum(nums);
                 printCommonAnswer(nums ,"+", answer, menuChoice);
-                System.out.println("Inside V case currently");
                 break;
 
             case 'L':
-                System.out.println("Inside L case currently");
+                largestOrSmallestNum(largestNum(nums), 'L');
                 break;
 
             case 'E':
-                System.out.println("Inside E case currently");
+                largestOrSmallestNum(smallestNum(nums), 'E');
                 break;
 
             case 'I':
-                System.out.println("Inside I case currently");
+                numSign(nums);
+                break;
+
+            case 'X':
                 break;
 
             default:
