@@ -61,8 +61,12 @@ public class Calculator {
         System.out.println("\nThank you for using Team 2's calculator! Good-bye!");
     }
 
-    /// FOR TEAMMATES, REMEMBER TO PUT METHODS ALPHABETICALLY IN ORDER
-    // This method will find the average of the elements in the array
+    /** 
+     * Finds the average of all the numbers. 
+     * 
+     * @param nums An array of numbers. 
+     * @return average Returns the average of numbers. 
+     */ 
     public static double averageNum(double[] nums) {
         // Declared variable
         double sum = 0;
@@ -76,10 +80,30 @@ public class Calculator {
         return average;
     }
 
-    /*
-     * This method will take in the user inputted values and subtract to fund the
-     * final value and return it.
-     */
+    /** 
+     * Checks if theres a zero or not after the first number. 
+     * 
+     * @param nums An array of numbers. 
+     * @return zero Returns true if zero exists, otherwise returns false. 
+     */ 
+    public static boolean checkZeros(double[] nums) {
+        boolean zero = false;
+
+        for (int i = 1; i < nums.length; i++){
+            if(nums[i] == 0){
+                zero = true; 
+                break;
+            }
+        }
+        return zero;
+    }
+
+    /** 
+     * Finds the difference of all the numbers inside the array.
+     * 
+     * @param nums An array of numbers. 
+     * @return totalSubtract Returns the difference of all the numbers. 
+     */ 
     public static double differenceNum(double[] nums) {
         // Declared needed varables
         double totalSubtract = nums[0];
@@ -91,6 +115,8 @@ public class Calculator {
         return totalSubtract;
     }
     
+    //FIX ME AFTER THIS 
+
     // This method will ask the user to enter any amount of numbers they want
     public static double[] getUserNum(Scanner scnr) {
         // Asks the user to input x amount of values
@@ -112,7 +138,7 @@ public class Calculator {
         return threeNumArray;
     }
 
-        /*
+    /*
      * This method will take in the user inputted values and find the largest of
      * them and return that.
      */
@@ -156,7 +182,7 @@ public class Calculator {
         return sign;
     }
     
-    public static void printCommonAnswer(double[] nums, String sign, double answer, char menuChoice) {
+    public static void printCommonAnswer(double[] nums, String sign, double answer, char menuChoice, boolean zeros) {
         
         switch(menuChoice){
             case 'V':
@@ -167,18 +193,23 @@ public class Calculator {
                 System.out.print(") / " + nums.length + " = " + String.format("%.3f",answer) 
                     + "\n");
                 break;
-
+                
             default:
-                System.out.print("\nAnswer: " + String.format("%.3f",nums[0]));
-                for(int i = 1; i < nums.length; i++){
-                    System.out.print(" " + sign + " " + String.format("%.3f",nums[i]));
+                if(menuChoice == 'D' && zeros == true){
+                    System.out.println("\n\tError: Cannot divide by zero!");
+                } else{
+                    System.out.print("\nAnswer: " + String.format("%.3f",nums[0]));
+                    for(int i = 1; i < nums.length; i++){
+                        System.out.print(" " + sign + " " + String.format("%.3f",nums[i]));
+                    }
+                    System.out.println(" = " + String.format("%.3f",answer));
                 }
-                System.out.println(" = " + String.format("%.3f",answer) + "\n");
         }
     }
 
     public static double[] processChoice(char menuChoice, Scanner scnr, double[] nums){
         double answer = 0.0;
+        boolean zeros = false;
         switch (menuChoice) {
             case 'N':
                 nums = getUserNum(scnr);
@@ -186,27 +217,28 @@ public class Calculator {
 
             case 'A':
                 answer = sumNum(nums);
-                printCommonAnswer(nums ,"+", answer, menuChoice);  
+                printCommonAnswer(nums ,"+", answer, menuChoice, zeros);  
                 break;
 
             case 'S':
                 answer = differenceNum(nums);
-                printCommonAnswer(nums ,"-", answer, menuChoice);
+                printCommonAnswer(nums ,"-", answer, menuChoice, zeros);
                 break;
 
             case 'M':
                 answer = productNum(nums);
-                printCommonAnswer(nums ,"*", answer, menuChoice);  
+                printCommonAnswer(nums ,"*", answer, menuChoice, zeros);  
                 break;
 
             case 'D':
+                zeros = checkZeros(nums);
                 answer = quotientNum(nums);
-                printCommonAnswer(nums ,"/", answer, menuChoice);
+                printCommonAnswer(nums ,"/", answer, menuChoice, zeros);
                 break;
 
             case 'V':
                 answer = averageNum(nums);
-                printCommonAnswer(nums ,"+", answer, menuChoice);
+                printCommonAnswer(nums ,"+", answer, menuChoice, zeros);
                 break;
 
             case 'L':
@@ -255,17 +287,16 @@ public class Calculator {
         return totalMulti;
     }
 
-    //THIS NEEDS FIXING 2.7 -3 5.2946 DOES NOT GIVE -0.170 
     // This method will call divide all the numbers in the array
-    public static double quotientNum(double[] nums) {;
+    public static double quotientNum(double[] nums) {
         // Declare variables
-        double totalDivide = 1;
+        double totalDivide = nums[0];
         // Loops though num array and divides each number
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             if (nums[0] == 0) {
                 totalDivide = 0;
             } else {
-                totalDivide /= nums[i];
+                totalDivide = totalDivide / nums[i];
             }
         }
         // Returns the value
