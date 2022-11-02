@@ -29,7 +29,17 @@
 // Packages.
 import java.util.Scanner;
 
-// Start of class.
+/**
+ * This program displays a menu with several different math problems to choose/solve.
+ * 
+ * @author Dhruv Sharma
+ * @author Emanuel Martins
+ * @author Hammad Uddin
+ * @author Mohammed Khan
+ * 
+ * @version 4.1, 11/1/22
+ */
+
 public class Calculator {
 	/**
 	 * This method contains the entire program.
@@ -37,7 +47,6 @@ public class Calculator {
 	 *@param number An array of any numbers, sum, subtraction, product, quotient, 
 	 *average, and sign of array values. 
 	 */
-    // Main method
     public static void main(String[] args) throws Exception {
         // Declared Variables
         char menuChoice = '\n';
