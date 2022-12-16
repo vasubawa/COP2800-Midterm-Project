@@ -51,7 +51,6 @@ public class Calculator {
         }
 
         // Closes Scanner and Returns the value.
-        //scnr.close();
         return threeNumArray;
     }
 
@@ -120,7 +119,6 @@ public class Calculator {
         }
 
         // Returns if the first choice was 'n' or not.
-        //scnr.close();
         return numEntered;
     }
 
@@ -149,7 +147,7 @@ public class Calculator {
 
         menuChoice = scnr.nextLine();
         menuChoice = menuChoice.toUpperCase();
-        //scnr.close();
+
         // Returns the choice
         return menuChoice;
     }
